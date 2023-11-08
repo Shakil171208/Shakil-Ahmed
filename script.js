@@ -14,6 +14,8 @@ function changeBackgroundColor(){
     mainSection.style.backgroundColor = randomColor;
 }
 
+changeColorButton.addEventListener('click', changeBackgroundColor);
+
 function getRandomColor(){
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -22,3 +24,14 @@ function getRandomColor(){
     }
     return color;
 }
+
+function updatteFooterDateTime(){
+const footer = document.getElementById('currentDateTime');
+const currentDate = newDate();
+const formattedDate = currentDate.toLocaleDateString();
+const formattedTime = currentDate.toLocaleTimeString();
+const year = currentDate.getFullYear();
+
+footer.textContent = `Current Date: ${formattedDate}, Time: ${formattedTime}, Year: ${year}`;
+}
+window.addEventListener('load', updatteFooterDateTime);
