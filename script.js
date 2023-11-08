@@ -1,0 +1,24 @@
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+        alert(`You clicked on "${link.textContent}"`);
+    });   
+});
+
+const mainSection = document.querySelectorAll('main');
+const changeColorButton = document.getElementById('changeColorButton');
+
+function changeBackgroundColor(){
+    const randomColor = getRandomColor();
+    mainSection.style.backgroundColor = randomColor;
+}
+
+function getRandomColor(){
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
